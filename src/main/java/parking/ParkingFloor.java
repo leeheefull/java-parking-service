@@ -8,6 +8,10 @@ public class ParkingFloor {
     private static final int START_OF_FLOOR = 1;
     private static final int END_OF_FLOOR = 5;
 
+    public ParkingFloor(String floor) {
+        this(Integer.parseInt(floor));
+    }
+
     public ParkingFloor(int floor) {
         validate(floor);
         this.floor = floor;
@@ -18,12 +22,12 @@ public class ParkingFloor {
     }
 
     private void validate(int floor) {
-        if (!isFloor(floor)) {
+        if (!isCorrectRange(floor)) {
             throw new RuntimeException("주차할 수 없는 층입니다.");
         }
     }
 
-    private boolean isFloor(int floor) {
+    private boolean isCorrectRange(int floor) {
         return START_OF_FLOOR <= floor && floor <= END_OF_FLOOR;
     }
 

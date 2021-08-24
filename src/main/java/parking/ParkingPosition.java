@@ -13,9 +13,9 @@ public class ParkingPosition {
 
     public ParkingPosition(String position) {
         validate(position);
-        this.floor = new ParkingFloor(position.charAt(0) - '0');
-        this.type = VehicleType.ofType(position.charAt(1) + "");
-        this.no = new ParkingNo(position.charAt(2) - '0');
+        this.floor = new ParkingFloor(position.substring(0, 1));
+        this.type = VehicleType.ofType(position.substring(1, 2));
+        this.no = new ParkingNo(position.substring(2, 3));
     }
 
     public String getPosition() {
@@ -35,12 +35,12 @@ public class ParkingPosition {
     }
 
     private void validate(String position) {
-        if (!isPosition(position)) {
+        if (!isSizeThree(position)) {
             throw new RuntimeException("주차 위치는 3글자 입니다.");
         }
     }
 
-    private boolean isPosition(String position) {
+    private boolean isSizeThree(String position) {
         return position.length() == POSITION_LENGTH;
     }
 

@@ -8,6 +8,10 @@ public class ParkingNo {
     private static final int START_OF_NO = 1;
     private static final int END_OF_NO = 5;
 
+    public ParkingNo(String no) {
+        this(Integer.parseInt(no));
+    }
+
     public ParkingNo(int no) {
         validate(no);
         this.no = no;
@@ -18,12 +22,12 @@ public class ParkingNo {
     }
 
     private void validate(int no) {
-        if (!isNo(no)) {
+        if (!isCorrectRange(no)) {
             throw new RuntimeException("주차할 수 없는 위치입니다.");
         }
     }
 
-    private boolean isNo(int no) {
+    private boolean isCorrectRange(int no) {
         return START_OF_NO <= no && no <= END_OF_NO;
     }
 

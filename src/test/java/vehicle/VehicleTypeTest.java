@@ -2,9 +2,9 @@ package vehicle;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import vehicle.VehicleType;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class VehicleTypeTest {
     @Test
@@ -37,5 +37,12 @@ public class VehicleTypeTest {
         assertEquals(VehicleType.SMALL, VehicleType.ofSize(1));
         assertEquals(VehicleType.MIDSIZE, VehicleType.ofSize(2));
         assertEquals(VehicleType.LARGE, VehicleType.ofSize(3));
+    }
+
+    @Test
+    @DisplayName("차량 타입에 맞지 않은 사이즈가 입력될 때")
+    void wrong_size() {
+        Exception exception = assertThrows(RuntimeException.class, () -> VehicleType.ofSize(5));
+        assertEquals("차량 타입에 맞지 않은 사이즈입니다.", exception.getMessage());
     }
 }
