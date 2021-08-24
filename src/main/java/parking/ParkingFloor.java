@@ -8,6 +8,10 @@ public class ParkingFloor {
     private static final int START_OF_FLOOR = 1;
     private static final int END_OF_FLOOR = 5;
 
+    public ParkingFloor(String floor) {
+        this(Integer.parseInt(floor));
+    }
+
     public ParkingFloor(int floor) {
         validate(floor);
         this.floor = floor;

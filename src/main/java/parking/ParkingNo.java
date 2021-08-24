@@ -8,6 +8,10 @@ public class ParkingNo {
     private static final int START_OF_NO = 1;
     private static final int END_OF_NO = 5;
 
+    public ParkingNo(String no) {
+        this(Integer.parseInt(no));
+    }
+
     public ParkingNo(int no) {
         validate(no);
         this.no = no;

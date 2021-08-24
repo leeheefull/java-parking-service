@@ -13,9 +13,9 @@ public class ParkingPosition {
 
     public ParkingPosition(String position) {
         validate(position);
-        this.floor = new ParkingFloor(position.charAt(0) - '0');
-        this.type = VehicleType.ofType(position.charAt(1) + "");
-        this.no = new ParkingNo(position.charAt(2) - '0');
+        this.floor = new ParkingFloor(position.substring(0, 1));
+        this.type = VehicleType.ofType(position.substring(1, 2));
+        this.no = new ParkingNo(position.substring(2, 3));
     }
 
     public String getPosition() {
