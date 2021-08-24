@@ -18,12 +18,12 @@ public class ParkingNo {
     }
 
     private void validate(int no) {
-        if (!isNo(no)) {
+        if (!isCorrectRange(no)) {
             throw new RuntimeException("주차할 수 없는 위치입니다.");
         }
     }
 
-    private boolean isNo(int no) {
+    private boolean isCorrectRange(int no) {
         return START_OF_NO <= no && no <= END_OF_NO;
     }
 

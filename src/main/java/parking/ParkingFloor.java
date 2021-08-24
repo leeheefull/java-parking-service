@@ -18,12 +18,12 @@ public class ParkingFloor {
     }
 
     private void validate(int floor) {
-        if (!isFloor(floor)) {
+        if (!isCorrectRange(floor)) {
             throw new RuntimeException("주차할 수 없는 층입니다.");
         }
     }
 
-    private boolean isFloor(int floor) {
+    private boolean isCorrectRange(int floor) {
         return START_OF_FLOOR <= floor && floor <= END_OF_FLOOR;
     }
 

@@ -35,12 +35,12 @@ public class ParkingPosition {
     }
 
     private void validate(String position) {
-        if (!isPosition(position)) {
+        if (!isSizeThree(position)) {
             throw new RuntimeException("주차 위치는 3글자 입니다.");
         }
     }
 
-    private boolean isPosition(String position) {
+    private boolean isSizeThree(String position) {
         return position.length() == POSITION_LENGTH;
     }
 

@@ -22,7 +22,7 @@ public class ParkingLot {
 
     public void park(ParkingPosition parkingPosition, Vehicle vehicle) {
         validateDuplication(vehicle);
-        isExistence(parkingPosition);
+        validateExistence(parkingPosition);
         validateType(parkingPosition, vehicle);
         validateFull();
         this.vehicles.put(parkingPosition, vehicle);
@@ -39,7 +39,7 @@ public class ParkingLot {
         }
     }
 
-    private void isExistence(ParkingPosition parkingPosition) {
+    private void validateExistence(ParkingPosition parkingPosition) {
         if (isOccupy(parkingPosition)) {
             throw new RuntimeException("해당 위치에는 이미 주차 되어있는 차량이 있습니다.");
         }
