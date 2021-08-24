@@ -18,13 +18,13 @@ public class VehicleNoTest {
     @DisplayName("차량 번호가 비정상일 때: 4자리가 아님")
     void wrong_no1() {
         Exception exception = assertThrows(RuntimeException.class, () -> new VehicleNo("123454"));
-        assertEquals("차량 번호는 4자리만 가능합니다.", exception.getMessage());
+        assertEquals("차량 번호는 4자리인 숫자로 구성되어야 합니다.", exception.getMessage());
     }
 
     @Test
     @DisplayName("차량 번호가 비정상일 때: 숫자로 구성되지 않음")
     void wrong_no2() {
         Exception exception = assertThrows(RuntimeException.class, () -> new VehicleNo("or1q"));
-        assertEquals("차량 번호는 숫자로 구성되어야 합니다.", exception.getMessage());
+        assertEquals("차량 번호는 4자리인 숫자로 구성되어야 합니다.", exception.getMessage());
     }
 }

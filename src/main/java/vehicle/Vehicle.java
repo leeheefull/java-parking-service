@@ -8,7 +8,7 @@ public class Vehicle {
 
     public Vehicle(String no, int size) {
         this.no = new VehicleNo(no);
-        this.type = VehicleType.ofSize(new VehicleSize(size).getSize());
+        this.type = VehicleType.ofSize(size);
     }
 
     public VehicleNo getNo() {
