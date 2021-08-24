@@ -3,8 +3,6 @@ package parking;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import vehicle.Vehicle;
-import vehicle.VehicleNo;
-import vehicle.VehicleSize;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -68,12 +66,10 @@ public class ParkingLotTest {
         parkingLot.park(parkingPosition, vehicle);
 
         // when, then
-        Exception exception = assertThrows(RuntimeException.class, () -> {
-            parkingLot.park(
-                    new ParkingPosition("1S3"),
-                    vehicle
-            );
-        });
+        Exception exception = assertThrows(RuntimeException.class, () -> parkingLot.park(
+                new ParkingPosition("1S3"),
+                vehicle
+        ));
         assertEquals("해당 차량은 이미 주차되어있는 상태입니다.", exception.getMessage());
     }
 
@@ -86,9 +82,7 @@ public class ParkingLotTest {
         ParkingLot parkingLot = new ParkingLot();
 
         // when, then
-        Exception exception = assertThrows(RuntimeException.class, () -> {
-            parkingLot.park(parkingPosition, vehicle);
-        });
+        Exception exception = assertThrows(RuntimeException.class, () -> parkingLot.park(parkingPosition, vehicle));
         assertEquals("차량 타입에 맞지 않는 주차 지역입니다.", exception.getMessage());
     }
 
@@ -106,9 +100,7 @@ public class ParkingLotTest {
         Vehicle vehicle2 = new Vehicle("4321", 3);
 
         // when, then
-        Exception exception = assertThrows(RuntimeException.class, () -> {
-            parkingLot.park(parkingPosition2, vehicle2);
-        });
+        Exception exception = assertThrows(RuntimeException.class, () -> parkingLot.park(parkingPosition2, vehicle2));
         assertEquals("해당 위치에는 이미 주차 되어있는 차량이 있습니다.", exception.getMessage());
     }
 
