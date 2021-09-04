@@ -42,4 +42,4 @@
 
 ## 클래스 다이어그램
 
-![image](https://user-images.githubusercontent.com/58816862/130223243-a1ba93bf-a91a-4b16-b172-f23c4edd055d.png)
+![image](https://user-images.githubusercontent.com/58816862/132098066-b52099b0-ea88-42d8-8889-0153d3706f40.png)
