@@ -3,7 +3,7 @@ package vehicle;
 public class VehicleNo {
     private final String no;
 
-    private static final String NUMBER_REGEX = "\\d{4}";
+    private static final String FOUR_DIGITS = "\\d{4}";
 
     public VehicleNo(String no) {
         validate(no);
@@ -15,12 +15,12 @@ public class VehicleNo {
     }
 
     private void validate(String no) {
-        if (!isNumber(no)) {
+        if (!isFourDigits(no)) {
             throw new RuntimeException("차량 번호는 4자리인 숫자로 구성되어야 합니다.");
         }
     }
 
-    private boolean isNumber(String no) {
-        return no.matches(NUMBER_REGEX);
+    private boolean isFourDigits(String no) {
+        return no.matches(FOUR_DIGITS);
     }
 }
