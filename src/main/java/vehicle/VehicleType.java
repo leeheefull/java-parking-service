@@ -27,24 +27,17 @@ public enum VehicleType {
         return Arrays.stream(values())
                 .filter(vehicleType -> vehicleType.type.equals(inputType))
                 .findFirst()
-                .get();
+                .orElseThrow(() -> {
+                    throw new RuntimeException("존재하지 않는 타입입니다.");
+                });
     }
 
     public static VehicleType ofSize(int inputSize) {
-        validate(inputSize);
         return Arrays.stream(values())
                 .filter(vehicleType -> vehicleType.size == inputSize)
                 .findFirst()
-                .get();
-    }
-
-    private static void validate(int size) {
-        if (!isVehicleSize(size)) {
-            throw new RuntimeException("차량 타입에 맞지 않은 사이즈입니다.");
-        }
-    }
-
-    private static boolean isVehicleSize(int size) {
-        return VehicleType.SMALL.getSize() <= size && size <= VehicleType.LARGE.getSize();
+                .orElseThrow(() -> {
+                    throw new RuntimeException("차량 타입에 맞지 않은 사이즈입니다.");
+                });
     }
 }
